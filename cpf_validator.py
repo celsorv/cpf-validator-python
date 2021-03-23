@@ -1,9 +1,27 @@
 import re
 
-#-----------------------------------------
-# CPF validation
-#-----------------------------------------
+#--------------------------------------------
+# CPF validation with lambda (shortest code)
+#--------------------------------------------
 class CpfValidator:
+
+    def isValid(self, number):
+
+        # invalid length or repeated digits
+        if len(number) != 11 or re.search(r"(\d)(\1{10})", number): return False
+
+        for i in reversed(range(1, 3)):
+            digit = sum(map(lambda e: e[0] * int(e[1]), enumerate(reversed(list(number[:-i])), start = 2))) % 11
+            if int(number[-i]) != (0 if digit < 3 else 11 - digit): return False
+
+        return True
+
+
+
+#--------------------------------------------
+# CPF validation
+#--------------------------------------------
+class CpfValidator1:
 
     def isValid(self, number):
 
@@ -27,9 +45,9 @@ class CpfValidator:
 
         return True
 
-#-----------------------------------------
+#--------------------------------------------
 # CPF validation with comprehension list
-#-----------------------------------------
+#--------------------------------------------
 class CpfValidator2:
 
     def isValid(self, number):
@@ -49,25 +67,9 @@ class CpfValidator2:
 
         return True
 
-#-----------------------------------------
-# CPF validation with lambda
-#-----------------------------------------
-class CpfValidator3:
-
-    def isValid(self, number):
-
-        # invalid length or repeated digits
-        if len(number) != 11 or re.search(r"(\d)(\1{10})", number): return False
-
-        for i in reversed(range(1, 3)):
-            digit = sum(map(lambda e: e[0] * int(e[1]), enumerate(reversed(list(number[:-i])), start = 2))) % 11
-            if int(number[-i]) != (0 if digit < 3 else 11 - digit): return False
-
-        return True
-
 # main
 
-cpfValidator = CpfValidator3()
+cpfValidator = CpfValidator()
 
 while True:
 
