@@ -2,4 +2,4 @@
 
 Validação de inscrição CPF de três maneiras difentes, incluindo o uso de lambda, list comprehensions e REGEX para rejeitar digitos repetidos.
 
-Com lambda precisa apenas de um for...loop de 3 linhas.
+Fazendo uso de lambda, todo o cálculo do checksum ocorre em um LOOP...FOR de apenas 3 linhas apenas.
