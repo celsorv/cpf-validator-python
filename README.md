@@ -1,3 +1,3 @@
 # cpf-validator-python
 
-Através de REGEX rejeita também inscrições com dígitos repetidos.
+Validação de inscrição CPF de três maneiras difentes, incluindo o uso de lambda, list comprehensions e REGEX para rejeitar digitos repetidos.
