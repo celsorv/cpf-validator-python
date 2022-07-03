@@ -9,7 +9,7 @@ class CpfValidator:
 
         # invalid length or repeated digits
         if len(number) != 11 or re.search(r"(\d)(\1{10})", number): return False
-        # if len(number) != 11 or number == str(number[0]) * len(number): return False  # ALTERNATIVE TEST without regex
+        # if len(number) != 11 or number == number[0] * len(number): return False  # ALTERNATIVE TEST without regex
 
         for i in reversed(range(1, 3)):
             digit = sum(map(lambda e: e[0] * int(e[1]), enumerate(reversed(list(number[:-i])), start = 2))) % 11
@@ -28,7 +28,7 @@ class CpfValidator1:
 
         # invalid length or repeated digits
         if len(number) != 11 or re.search(r"(\d)(\1{10})", number): return False
-        # if len(number) != 11 or number == str(number[0]) * len(number): return False  # ALTERNATIVE TEST without regex
+        # if len(number) != 11 or number == number[0] * len(number): return False  # ALTERNATIVE TEST without regex
 
         for cycle in range(2):
 
@@ -56,7 +56,7 @@ class CpfValidator2:
 
         # invalid length or repeated digits
         if len(number) != 11 or re.search(r"(\d)(\1{10})", number): return False
-        # if len(number) != 11 or number == str(number[0]) * len(number): return False  # ALTERNATIVE TEST without regex
+        # if len(number) != 11 or number == number[0] * len(number): return False  # ALTERNATIVE TEST without regex
 
         for cycle in range(2):
 
